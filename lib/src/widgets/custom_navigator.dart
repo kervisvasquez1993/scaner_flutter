@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomNvigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final currentIndex = 1;
+    final currentIndex = 0;
     return BottomNavigationBar(
       currentIndex: currentIndex,
       elevation: 0,

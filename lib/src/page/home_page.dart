@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:qr_flutter/src/page/direcciones_page.dart';
 import 'package:qr_flutter/src/page/mapa_page.dart';
 import 'package:qr_flutter/src/page/mapas_page.dart';
+import 'package:qr_flutter/src/provider/ui_provider.dart';
 import 'package:qr_flutter/src/widgets/custom_navigator.dart';
 import 'package:qr_flutter/src/widgets/scam_bottom.dart';
 
@@ -28,7 +30,10 @@ class HomePage extends StatelessWidget {
 
 class _HomePageBody extends StatelessWidget {
   Widget build(BuildContext context) {
-    final currentIndex = 0;
+    //OBTENER EL MENU OPT
+
+    final uiProvider = Provider.of<UIProvider>(context);
+    final currentIndex = uiProvider.selectedMenuOpt;
     switch (currentIndex) {
       case 0:
         return MapasPage();
