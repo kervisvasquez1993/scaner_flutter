@@ -3,9 +3,11 @@ import 'package:provider/provider.dart';
 import 'package:qr_flutter/src/page/direcciones_page.dart';
 import 'package:qr_flutter/src/page/mapa_page.dart';
 import 'package:qr_flutter/src/page/mapas_page.dart';
+import 'package:qr_flutter/src/provider/db_provider.dart';
 import 'package:qr_flutter/src/provider/ui_provider.dart';
 import 'package:qr_flutter/src/widgets/custom_navigator.dart';
 import 'package:qr_flutter/src/widgets/scam_bottom.dart';
+/* /data/user/0/com.example.qr_flutter/app_flutter/ScansDB.db */
 
 class HomePage extends StatelessWidget {
   @override
@@ -31,9 +33,12 @@ class HomePage extends StatelessWidget {
 class _HomePageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     //OBTENER EL MENU OPT
+    DBProvider.db.database;
 
     final uiProvider = Provider.of<UIProvider>(context);
     final currentIndex = uiProvider.selectedMenuOpt;
+    // todo: Temporal leer la BD
+
     switch (currentIndex) {
       case 0:
         return MapasPage();
