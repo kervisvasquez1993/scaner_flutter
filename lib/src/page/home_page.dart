@@ -33,7 +33,9 @@ class HomePage extends StatelessWidget {
 class _HomePageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     //OBTENER EL MENU OPT
-    DBProvider.db.database;
+    String tempScan = new ScanModel(valor: "kervis");
+
+    DBProvider.db.nuevoScan(tempScan);
 
     final uiProvider = Provider.of<UIProvider>(context);
     final currentIndex = uiProvider.selectedMenuOpt;
