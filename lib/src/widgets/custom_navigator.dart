@@ -5,7 +5,8 @@ import 'package:qr_flutter/src/provider/ui_provider.dart';
 class CustomNvigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final uiProvider = Provider.of<UIProvider>(context);
+    final uiProvider =
+        Provider.of<UIProvider>(context); // elemento seleccionado
     final currentIndex = uiProvider;
     return BottomNavigationBar(
       onTap: (int i) => uiProvider.selectedMenuOpt = i,

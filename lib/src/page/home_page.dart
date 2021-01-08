@@ -26,6 +26,7 @@ class HomePage extends StatelessWidget {
       bottomNavigationBar: CustomNvigationBar(),
       floatingActionButton: ScamButtom(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // centrar el floating action bottom
     );
   }
 }
@@ -33,9 +34,9 @@ class HomePage extends StatelessWidget {
 class _HomePageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     //OBTENER EL MENU OPT
-    String tempScan = new ScanModel(valor: "kervis");
+    // String tempScan = new ScanModel(valor: "kervis");
 
-    DBProvider.db.nuevoScan(tempScan);
+    //DBProvider.db.nuevoScan(tempScan);
 
     final uiProvider = Provider.of<UIProvider>(context);
     final currentIndex = uiProvider.selectedMenuOpt;
