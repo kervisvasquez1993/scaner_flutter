@@ -15,23 +15,18 @@ class DBProvider {
 /* estructura de un singerton */
   Future<Database> get database async {
     if (_database != null) return _database;
-
     _database = await initDB();
-
     return _database;
   }
 
-  /**/
-
   Future<Database> initDB() async {
     // path donde almacenaremos la base de datos
-    Directory documentsDirectory = await getApplicationDocumentsDirectory();
+    Directory documentsDirectory =
+        await getExternalStorageDirectory(); // getExternalStorageDirectory // getApplicationDocumentsDirectory
     final path = join(documentsDirectory.path, "ScansDB.db");
     print("===============Ruta de la BD ==================");
-
     print(path);
     print(documentsDirectory);
-
     //crear BD
     return await openDatabase(
       path,
@@ -50,7 +45,7 @@ class DBProvider {
     );
   }
 
-  nuevoScanRae(ScanModel nuevoScan) async {
+  nuevoScanRaw(ScanModel nuevoScan) async {
     final id = nuevoScan.id;
     final tipo = nuevoScan.tipo;
     final valor = nuevoScan.valor;
@@ -65,8 +60,13 @@ class DBProvider {
   }
 
   Future<int> nuevoScan(ScanModel nuevoScan) async {
+    // verificar la bd
     final db = await database;
     final res = await db.insert('Scans', nuevoScan.toJson());
+    print("======obtener insercion ======");
+    print(res);
+
+    // res es el ID del ultimo producto insertado.
     return res;
   }
 }

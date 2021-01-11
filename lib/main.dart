@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
+      // el multiprovide
       providers: [
         ChangeNotifierProvider(
           create: (_) => new UIProvider(),
@@ -21,9 +22,9 @@ class MyApp extends StatelessWidget {
         initialRoute: 'home',
         routes: {'home': (_) => HomePage(), 'mapas': (_) => MapaPage()},
         theme: ThemeData(
-            primaryColor: Colors.deepPurple,
+            primaryColor: Colors.deepOrange,
             floatingActionButtonTheme: FloatingActionButtonThemeData(
-                backgroundColor: Colors.deepPurple)),
+                backgroundColor: Colors.deepOrange)),
       ),
     );
   }

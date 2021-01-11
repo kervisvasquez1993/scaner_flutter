@@ -30,7 +30,7 @@ dependencies:
   provider:
   flutter_barcode_scanner: ^1.0.1
   path_provider: ^1.6.24
-  sqflite:
+  sqflite: 
   cupertino_icons: ^0.1.3
 
 dev_dependencies:
